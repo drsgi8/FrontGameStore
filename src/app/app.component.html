@@ -1,3 +1,34 @@
-<h1>
-  {{title}}
-</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>Game Store</title>
+<div class="container">
+  <div class="fxdPanel">
+    <h1>Game Store</h1>
+
+    <div class="loggingPanel">
+      <form action="{{backendUrl}}/login" method="POST">
+        <input type="text" name="username" />
+        <input type="password" name="password" />
+        <input type="submit" value="Sign in" />
+      </form>
+      <a href="{{backendUrl}}/user/register">Register</a><br/>
+      <a href="{{backendUrl}}/logout">Logout</a>
+      <a href="{{backendUrl}}/admin">admin</a>
+    </div>
+
+  </div>
+
+  <div class="mainFrame">
+    <div class="header">
+      <div class="picture"></div>
+    </div>
+
+    <div class="content">
+      <input type="text" [(ngModel)]="searchName" (keyup)="search()"/>
+      <div id="products">
+        <div *ngFor="let product of products">
+          {{product.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
