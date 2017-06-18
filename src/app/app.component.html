@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="upperBar">
+    <h1>Game Store</h1>
+    <div class="loggingPanel">
+      <a href="{{backendUrl}}/login">Sign In</a>
+      <a href="{{backendUrl}}/user/register">Register</a>
+      <a href="{{backendUrl}}/logout">Logout</a>
+    </div>
+  </div>
+  <div class="mainFrame">
+    <div class="content">
+      <div class="searchBar">
+        <div class="searchPanel">
+          <button id="filterButton">Filtering</button>
+        </div>
+        <input id="searchBox"type="text" [(ngModel)]="searchName" (keyup)="search()"/>
+      </div>
+      <div id="products">
+      </div>
+    </div>
+  </div>
+</div>
