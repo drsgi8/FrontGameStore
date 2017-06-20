@@ -12,11 +12,11 @@
       <div class="searchBar">
         <div class="searchPanel">
           <button id="filterButton">Filtering</button>
+          <button id="sortButton">Sorting</button>
         </div>
         <input id="searchBox"type="text" [(ngModel)]="searchName" (keyup)="search()"/>
       </div>
-      <div id="products">
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+</div> 

@@ -5,4 +5,5 @@ export class Product {
   desc: string;
   price: number;
   amount: number;
+  pictureUrl: string;
 }

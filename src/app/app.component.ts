@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from '../shared/product.service';
 import { Product } from '../shared/Product';
-import { loadProducts } from '../scripts/disp_products.js';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,14 @@ import { loadProducts } from '../scripts/disp_products.js';
 })
 export class AppComponent implements OnInit {
 
-  searchName: string;
+  searchName: string; 
   products: Product[];
   backendUrl = 'http://localhost:8080';
   headerBannerUrl: string;
 
-  constructor(private service: ProductService) {
+  constructor(
+    private service: ProductService,
+    private router: Router) {
     this.headerBannerUrl  = 'assets/witcher3-banner.jpg';
   }
 
@@ -23,13 +25,13 @@ export class AppComponent implements OnInit {
     this.service.getProducts()
       .subscribe(list => {
         this.products = list;
-        loadProducts(this.products);
       });
   }
 
   search(): void {
     this.service.setName(this.searchName);
     this.updateProducts();
+    this.router.navigate(['/list', this.searchName]);
   }
 
   ngOnInit(): void {
